@@ -7,13 +7,23 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    versionKotlin = '1.0.0-rc-1036'
+    versionNeo4j = '2.3.2'
+    versionReflections = '0.9.10'
+    versionSlf4j = '1.7.14'
+}
+
 dependencies {
-    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-4589'
-    compile 'org.jetbrains.kotlin:kotlin-reflect:1.0.0-beta-4589'
-    compile 'org.neo4j:neo4j:2.3.2'
-    compile 'org.reflections:reflections:0.9.10'
-    compile 'org.slf4j:slf4j-api:1.7.14'
-    compile 'org.slf4j:slf4j-simple:1.7.14'
+    compile (
+        [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: versionKotlin],
+        [group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: versionKotlin],
+        [group: 'org.neo4j', name: 'neo4j', version: versionNeo4j],
+        [group: 'org.reflections', name: 'reflections', version: versionReflections],
+        [group: 'org.slf4j', name: 'slf4j-api', version: versionSlf4j],
+        [group: 'org.slf4j', name: 'slf4j-simple', version: versionSlf4j],
+        [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: versionKotlin]
+    )
 }
 
 buildscript {
@@ -21,7 +31,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0-beta-4589'
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versionKotlin
     }
 }
 
